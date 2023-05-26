@@ -8,10 +8,11 @@ pts = 0
 lib = 0
 
 def Writing():
-  UserInput = input("Code (Use ; for Breakline): ")
+  UserInput = st.text_area("Code: ")
   f = open("TrueUserInput.py", "w")
   f.write(UserInput)
   f.close()
+  st.code(UserInput)
 
 
 def HighScoreRecord():
@@ -74,6 +75,5 @@ def Checker():
 
 
 st.title("Code-It-Out!!")
-UserInput = st.text_area("Code: ")
-st.code(UserInput)
+Writing()
 
