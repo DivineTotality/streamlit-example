@@ -1,6 +1,6 @@
 import streamlit as st
-import altair
-import pandas
+import pandas as pd
+import numpy as np
 from random import randint
 from importlib import reload
 from os import system
