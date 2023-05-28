@@ -10,13 +10,11 @@ pts = 0
 lib = 0
 
 def Writing():
-  PATH_TO_MY_FILE = './TrueUserInput.py'
   UserInput = st.text_area("Code: ")
-  f = open("TrueUserInput.py", "w")
-  f.write(UserInput)
-  f.close()
-  st.code(UserInput)
-  writeToFile(PATH_TO_MY_FILE, UserInput)
+  with open('./TrueUserInput.py', 'a') as fp:
+    fp.write(UserInput)
+    fp.close()
+   st.code(UserInput)
 
 
 def HighScoreRecord():
