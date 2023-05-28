@@ -12,7 +12,7 @@ lib = 0
 def Writing():
   filepath = 'TrueUserInput.py'
   UserInput = st.text_area("Code: ")
-  with open(filepath, 'a') as fp:
+  with open(filepath, 'w') as fp:
     fp.write(UserInput)
     fp.close()
   st.code(UserInput)
