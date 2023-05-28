@@ -35,19 +35,19 @@ def HighScoreRecord():
     HS.close()
   else:
     return 0
-
-def Checker():
+  
+def Question():
   global lib
   global pts
   global TrueUserInput
   if realOutput == 1:
     Question1 = (randint(1,1000))
-    print("output the value of x as:", Question1)
+    st.write("output the value of x as:", Question1)
     Writing()
     
   elif realOutput == 2:
     QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
-    print("Make a program that combines all these numbers,saved as x, y, z:", QuestionInput)
+    st.write("Make a program that combines all these numbers,saved as x, y, z:", QuestionInput)
     Writing()
 
   sleep(0.5)
@@ -57,6 +57,10 @@ def Checker():
   else:
     reload(TrueUserInput)
 
+def Checker():
+  global lib
+  global pts
+  global TrueUserInput
   if realOutput == 1:
     if TrueUserInput.x == Question1:
       print("\nCorrect!\n")
@@ -80,4 +84,4 @@ def Checker():
 
 st.title("Code-It-Out!!")
 st.divider()
-Writing()
+Question()
