@@ -48,7 +48,7 @@ def Question():
     
   elif realOutput == 2:
     QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
-    st.write("Make a program that combines all these numbers,saved as x, y, z:", QuestionInput)
+    st.write("Make a program that combines all these numbers, saved as x, y, z:", QuestionInput)
     Writing()
 
   sleep(0.5)
