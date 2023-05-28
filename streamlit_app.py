@@ -78,4 +78,5 @@ def Checker():
 
 st.title("Code-It-Out!!")
 Writing()
-
+with st.echo():
+  st.write('Code will be executed and printed')
