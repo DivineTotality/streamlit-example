@@ -75,8 +75,7 @@ def Checker():
       print("P:", pts)
       sleep(1) 
 
-
-st.title("Code-It-Out!!")
-Writing()
 with st.echo():
   st.write('Code will be executed and printed')
+  st.title("Code-It-Out!!")
+  Writing()
