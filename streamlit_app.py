@@ -14,7 +14,7 @@ def Writing():
   with open('./TrueUserInput.py', 'a') as fp:
     fp.write(UserInput)
     fp.close()
-   st.code(UserInput)
+  st.code(UserInput)
 
 
 def HighScoreRecord():
