@@ -10,11 +10,11 @@ pts = 0
 lib = 0
 
 def Writing():
-  filepath = 'TrueUserInput.py'
   UserInput = st.text_area("Code: ")
-  with open(filepath, 'w') as fp:
-    fp.write(UserInput)
-    fp.close()
+  filename = 'TrueUserInput.py' # select file that you want to add some text inside.
+with open(filename, 'w') as file_obj: # open function with 'w' argument it is mean you will add some text in empty file
+    file_obj.write("I love programming!\n") # write() function to writes some text inside files
+    file_obj.write("I love Python!\n")
   st.code(UserInput)
 
 
