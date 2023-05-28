@@ -15,9 +15,9 @@ def Writing():
   if st.button("Submit"):
     st.code(TrueUserInput)
     with open(filename, 'w') as file_obj: # open function with 'w' argument it is mean you will add some text in empty file
-    file_obj.write("I love programming!\n") # write() function to writes some text inside files
-    file_obj.write("I love Python!\n")
-    file_obj.close()
+      file_obj.write("I love programming!\n") # write() function to writes some text inside files
+      file_obj.write("I love Python!\n")
+      file_obj.close()
 
 
 def HighScoreRecord():
