@@ -79,6 +79,3 @@ def Checker():
 st.title("Code-It-Out!!")
 st.divider()
 Writing()
- 
-with st.echo():
-  print("Yes")
