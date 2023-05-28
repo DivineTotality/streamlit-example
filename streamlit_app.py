@@ -12,7 +12,7 @@ lib = 0
 def Writing():
   UserInput = st.text_area("Code: ")
   f = open("TrueUserInput.py", "w")
-  f.write("10")
+  f.write(UserInput)
   f.close()
   st.code(UserInput)
 
