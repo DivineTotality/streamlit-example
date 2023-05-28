@@ -52,11 +52,6 @@ def Question():
     Writing()
 
   sleep(0.5)
-  /*if lib==0:
-    import TrueUserInput
-    lib=1
-  else:
-    reload(TrueUserInput)*/
 
 def Checker():
   global lib
