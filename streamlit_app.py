@@ -80,3 +80,4 @@ st.title("Code-It-Out!!")
 Writing()
  
 with st.echo():
+  return 0
