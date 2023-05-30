@@ -4,6 +4,7 @@ import numpy as np
 from random import randint
 from importlib import reload
 from os import system
+import os
 from time import sleep
 realOutput = (randint(1,2))
 l = 0
