@@ -17,7 +17,6 @@ def Writing():
     with open('TrueUserInput.py', 'w') as file_obj: # open function with 'w' argument it is mean you will add some text in empty file
       file_obj.write("I love programming!\n") # write() function to writes some text inside files
       file_obj.write("I love Python!\n")
-      st.write(file_obj.read())
     file_obj.close()
 
 
