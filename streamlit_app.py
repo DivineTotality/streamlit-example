@@ -55,6 +55,8 @@ def Checker():
   global lib
   global pts
   global TrueUserInput
+  global Question1
+  global QuestionInput
   if realOutput == 1:
     if TrueUserInput.x == Question1:
       print("\nCorrect!\n")
