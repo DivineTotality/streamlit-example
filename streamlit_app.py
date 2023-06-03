@@ -14,7 +14,7 @@ def Writing():
   TrueUserInput = st.text_area("Code: ")
   if st.button("Submit"):
     st.code(TrueUserInput)
-    with open('TrueUserInput.py', 'a+') as file_obj: # open function with 'w' argument it is mean you will add some text in empty file
+  with open('TrueUserInput.py', 'a+') as file_obj: # open function with 'w' argument it is mean you will add some text in empty file
       file_obj.write(str(TrueUserInput))
 
 
