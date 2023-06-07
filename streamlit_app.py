@@ -81,4 +81,8 @@ def Checker():
 
 st.title("Code-It-Out!!")
 st.divider()
+
+# Change the current working directory to the directory where your GitHub repository is located.
+os.chdir("TrueUserInput.py")
+
 Question()
