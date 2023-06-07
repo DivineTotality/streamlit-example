@@ -13,4 +13,5 @@ code = st.text_area("Enter your code here:", height=400)
 
 # Execute the code
 if st.button("Execute Code"):
-  st.write(exec(code))
+  execute = exec(code)
+  st.write(execute)
