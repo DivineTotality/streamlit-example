@@ -1,18 +1,22 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 from random import randint
+from importlib import reload
+from os import system
 from time import sleep
-
-realOutput = randint(1, 2)
+realOutput = (randint(1,2))
+l = 0
 pts = 0
-TrueUserInput = None
+lib = 0
 
 def Writing():
-    global TrueUserInput
-    TrueUserInput = st.text_area("Code: ")
-    if st.button("Submit"):
-        st.code(TrueUserInput)
-        with open('TrueUserInput.py', 'w') as file_obj:
-            file_obj.write("x = {}\n".format(TrueUserInput))
+  TrueUserInput = st.text_area("Code: ")
+  if st.button("Submit"):
+    st.code(TrueUserInput)
+    with open('TrueUserInput.py2', 'w') as file_obj: # open function with 'w' argument it is mean you will add some text in empty file
+      file_obj.write(str(TrueUserInput))
+
 
 def HighScoreRecord():
   global pts
@@ -47,24 +51,31 @@ def Question():
   sleep(0.5)
 
 def Checker():
-    global pts
-    global TrueUserInput
-    if realOutput == 1:
-        if TrueUserInput == str(Question1):
-            st.write("Correct!")
-            pts += 100
-        else:
-            st.write("Incorrect!")
-    elif realOutput == 2:
-        if 'x' in globals():
-            x_value = globals()['x']
-            if x_value == sum(QuestionInput):
-                st.write("Correct!")
-                pts += 150
-            else:
-                st.write("Incorrect!")
-        else:
-            st.write("Variable x is not defined.")
+  global lib
+  global pts
+  global TrueUserInput
+  global Question1
+  global QuestionInput
+  if realOutput == 1:
+    if TrueUserInput.x == Question1:
+      print("\nCorrect!\n")
+      print("P:", pts, "+ 100")
+      pts += 100
+      sleep(1)
+    else:
+      print("\nIncorrect!\n")
+      print("P:", pts)
+      sleep(1)
+  elif realOutput==2:
+    if TrueUserInput.x+TrueUserInput.y+TrueUserInput.z == QuestionInput[0]+QuestionInput[1]+QuestionInput[2]:
+      print("\nCorrect\n")
+      print("P:", pts, "+ 150")
+      pts += 150
+      sleep(1)
+    else:
+      print("\nIncorrect!\n")
+      print("P:", pts)
+      sleep(1) 
 
 st.title("Code-It-Out!!")
 st.divider()
