@@ -24,12 +24,12 @@ def Question():
   if realOutput == 1:
     Question1 = (randint(1,1000))
     st.write("output the value of x as:", Question1)
-    Writing()
+    code = st.text_area("Enter your code here:", height=400)
     
   elif realOutput == 2:
     QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
     st.write("Make a program that combines all these numbers, saved as x, y, z:", QuestionInput)
-    Writing()
+    code = st.text_area("Enter your code here:", height=400)
 
   sleep(0.5)
 
@@ -64,9 +64,6 @@ def Checker():
 st.title("CODE-IT-OUT!!")
 st.divider()
 Question()
-
-# Get the code input from the user
-code = st.text_area("Enter your code here:", height=400)
 
 # Execute the code
 if st.button("Execute Code"):
