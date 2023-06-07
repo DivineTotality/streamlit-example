@@ -1,5 +1,15 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+from random import randint
+from importlib import reload
+from os import system
 from time import sleep
+realOutput = (randint(1,2))
+l = 0
+pts = 0
+lib = 0
+
 
 def execute_code(code):
   try:
