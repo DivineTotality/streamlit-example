@@ -28,6 +28,7 @@ def Checker():
   global TrueUserInput
   global Question1
   global QuestionInput
+  global realOutput
   if realOutput == 1:
     if TrueUserInput.x == Question1:
       print("\nCorrect!\n")
