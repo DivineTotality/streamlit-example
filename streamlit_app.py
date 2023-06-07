@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from random import randint
 from time import sleep
@@ -11,7 +12,9 @@ def Writing():
     TrueUserInput = st.text_area("Code: ")
     if st.button("Submit"):
         st.code(TrueUserInput)
-        with open('UserInput.py', 'w') as file_obj:
+        script_path = os.path.dirname(os.path.abspath(__file__))
+        file_path = os.path.join(script_path, "TrueUserInput.py")
+        with open(file_path, 'w') as file_obj:
             file_obj.write("code = '''\n")
             file_obj.write(TrueUserInput)
             file_obj.write("\n'''")
