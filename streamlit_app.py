@@ -12,7 +12,9 @@ def Writing():
     if st.button("Submit"):
         st.code(TrueUserInput)
         with open('TrueUserInput.py', 'w') as file_obj:
+            file_obj.write("code = '''\n")
             file_obj.write(TrueUserInput)
+            file_obj.write("\n'''")
 
 def HighScoreRecord():
     global pts
