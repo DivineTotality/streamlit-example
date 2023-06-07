@@ -12,7 +12,7 @@ def Writing():
     if st.button("Submit"):
         st.code(TrueUserInput)
         with open('TrueUserInput.py', 'w') as file_obj:
-            file_obj.write(str(TrueUserInput))
+            file_obj.write(TrueUserInput)
 
 def HighScoreRecord():
     global pts
@@ -52,7 +52,9 @@ def Question():
         if st.button("Check Answer"):
             st.code(TrueUserInput)
             with open('TrueUserInput.py', 'w') as file_obj:
-                file_obj.write(TrueUserInput)
+                file_obj.write("x = {}\n".format(QuestionInput[0]))
+                file_obj.write("y = {}\n".format(QuestionInput[1]))
+                file_obj.write("z = {}\n".format(QuestionInput[2]))
 
             try:
                 exec(TrueUserInput)
