@@ -11,7 +11,7 @@ def Writing():
     TrueUserInput = st.text_area("Code: ")
     if st.button("Submit"):
         st.code(TrueUserInput)
-        with open('TrueUserInput.py', 'w') as file_obj:
+        with open('UserInput.py', 'w') as file_obj:
             file_obj.write("code = '''\n")
             file_obj.write(TrueUserInput)
             file_obj.write("\n'''")
