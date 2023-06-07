@@ -1,22 +1,21 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 from random import randint
+from importlib import reload
+from os import system
 from time import sleep
-
 realOutput = (randint(1,2))
 l = 0
 pts = 0
 lib = 0
 
-class SessionState:
-    def __init__(self):
-        self.TrueUserInput = ""
-
-state = SessionState()
-
 def Writing():
-    state.TrueUserInput = st.text_area("Code: ")
+    TrueUserInput = st.text_area("Code: ")
     if st.button("Submit"):
-        st.code(state.TrueUserInput)
+        st.code(TrueUserInput)
+        with open('TrueUserInput.py', 'w') as file_obj:
+            file_obj.write(TrueUserInput)
 
 def HighScoreRecord():
     global pts
@@ -25,7 +24,7 @@ def HighScoreRecord():
     InterPTS = int(InterPTS)
     HSR.close()
     print('Current High Score:', InterPTS, "\n")
-
+  
     if InterPTS <= pts:
         HS = open("HighScore.txt", "w")
         StringPTS = str(pts)
@@ -33,14 +32,16 @@ def HighScoreRecord():
         HS.close()
     else:
         return 0
-
+  
 def Question():
     global lib
     global pts
+    global TrueUserInput
     if realOutput == 1:
         Question1 = (randint(1,1000))
         st.write("output the value of x as:", Question1)
         Writing()
+    
     elif realOutput == 2:
         QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
         st.write("Make a program that combines all these numbers, saved as x, y, z:", QuestionInput)
@@ -51,10 +52,11 @@ def Question():
 def Checker():
     global lib
     global pts
+    global TrueUserInput
     global Question1
     global QuestionInput
     if realOutput == 1:
-        if state.TrueUserInput.x == Question1:
+        if TrueUserInput.x == Question1:
             print("\nCorrect!\n")
             print("P:", pts, "+ 100")
             pts += 100
@@ -64,7 +66,7 @@ def Checker():
             print("P:", pts)
             sleep(1)
     elif realOutput == 2:
-        if state.TrueUserInput.x + state.TrueUserInput.y + state.TrueUserInput.z == QuestionInput[0] + QuestionInput[1] + QuestionInput[2]:
+        if TrueUserInput.x+TrueUserInput.y+TrueUserInput.z == QuestionInput[0]+QuestionInput[1]+QuestionInput[2]:
             print("\nCorrect\n")
             print("P:", pts, "+ 150")
             pts += 150
@@ -72,7 +74,7 @@ def Checker():
         else:
             print("\nIncorrect!\n")
             print("P:", pts)
-            sleep(1)
+            sleep(1) 
 
 st.title("Code-It-Out!!")
 st.divider()
