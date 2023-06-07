@@ -6,7 +6,7 @@ def execute_code(code):
   except Exception as e:
     st.error(e)
     
- def Question():
+def Question():
   global lib
   global pts
   global TrueUserInput
