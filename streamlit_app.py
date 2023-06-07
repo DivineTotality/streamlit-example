@@ -13,6 +13,7 @@ code = st.text_area("Enter your code here:", height=400)
 
 # Execute the code
 if st.button("Execute Code"):
+  x=0
   execute_code(code)
   if x == 10:
     st.write("WORKED")
