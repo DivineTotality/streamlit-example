@@ -24,12 +24,12 @@ def Question():
   if realOutput == 1:
     Question1 = (randint(1,1000))
     st.write("output the value of x as:", Question1)
-    codes = st.text_area("Enter your code here:", height=400)
+    code = st.text_input("Enter your code here:")
     
   elif realOutput == 2:
     QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
     st.write("Make a program that combines all these numbers, saved as x, y, z:", QuestionInput)
-    code = st.text_input("Enter your code here:", height=400)
+    code = st.text_input("Enter your code here:")
 
   sleep(0.5)
 
