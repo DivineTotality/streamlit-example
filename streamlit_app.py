@@ -5,7 +5,7 @@ QuestionChoices = randint(1,2)
 pts = 0
 
 st.title("CODE-IT-OUT!!")
-st.header("Points:", pts)
+st.write("Points:", pts)
 st.divider()
 
 if QuestionChoices == 1:
