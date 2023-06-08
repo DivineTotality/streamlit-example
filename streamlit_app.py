@@ -25,7 +25,7 @@ def Question():
     code = st.text_area("Code: ")
 
 while l<1:
-  st.caption("P:", pts)
+  st.write("P:", pts)
   realOutput = (randint(1,2))
   Question()
   
