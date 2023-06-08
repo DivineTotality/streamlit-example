@@ -11,9 +11,9 @@ pts = 0
 lib = 0
 
 
-def execute_code(code):
+def execute_code(codes):
   try:
-    exec(code)
+    exec(codes)
   except Exception as e:
     st.error()
     
@@ -24,7 +24,7 @@ def Question():
   if realOutput == 1:
     Question1 = (randint(1,1000))
     st.write("output the value of x as:", Question1)
-    code = st.text_area("Enter your code here:", height=400)
+    codes = st.text_area("Enter your code here:", height=400)
     
   elif realOutput == 2:
     QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
@@ -39,5 +39,5 @@ Question()
 
 # Execute the code
 if st.button("Execute Code"):
-  execute_code(code)
+  execute_code(codes)
   print(y)
