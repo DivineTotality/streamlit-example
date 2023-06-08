@@ -8,6 +8,8 @@ st.title("CODE-IT-OUT!!")
 st.write("Points:", pts)
 st.divider()
 
+sleep(1)
+
 if QuestionChoices == 1:
   Question1 = (randint(1,1000))
   st.write("output the value of x as:", Question1)
@@ -34,5 +36,3 @@ if st.button("Run"):
       pts+=100
     else:
       st.write("Wrong")
- 
-sleep(1) 
