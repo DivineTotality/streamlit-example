@@ -10,7 +10,6 @@ def execute_code(code):
     The value of the last expression evaluated in the code.
   """
   exec(code)
-  return locals()["result"]
 
 st.title("Code Execution")
 
