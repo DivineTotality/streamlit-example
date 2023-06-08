@@ -30,6 +30,7 @@ realOutput = (randint(1,2))
 Question()
   
 if st.button("Run"):
+  code = str(code)
   exec(code)
   st.write("Why is:", x)
 
