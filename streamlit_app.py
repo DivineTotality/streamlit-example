@@ -33,34 +33,6 @@ def Question():
 
   sleep(0.5)
 
-def Checker():
-  global lib
-  global pts
-  global TrueUserInput
-  global Question1
-  global QuestionInput
-  global realOutput
-  if realOutput == 1:
-    if TrueUserInput.x == Question1:
-      print("\nCorrect!\n")
-      print("P:", pts, "+ 100")
-      pts += 100
-      sleep(1)
-    else:
-      print("\nIncorrect!\n")
-      print("P:", pts)
-      sleep(1)
-  elif realOutput==2:
-    if TrueUserInput.x+TrueUserInput.y+TrueUserInput.z == QuestionInput[0]+QuestionInput[1]+QuestionInput[2]:
-      print("\nCorrect\n")
-      print("P:", pts, "+ 150")
-      pts += 150
-      sleep(1)
-    else:
-      print("\nIncorrect!\n")
-      print("P:", pts)
-      sleep(1)
-
 st.title("CODE-IT-OUT!!")
 st.divider()
 Question()
