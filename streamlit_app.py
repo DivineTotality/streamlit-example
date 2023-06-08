@@ -1,5 +1,5 @@
 import streamlit as st
-from math import random
+from random import randint
 from os import system
 QuestionChoices = randint(1,2)
 pts = 0
