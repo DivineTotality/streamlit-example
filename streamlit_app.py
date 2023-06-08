@@ -9,7 +9,7 @@ def execute_code(code):
   Returns:
     The value of the last expression evaluated in the code.
   """
-  return eval(f"{code}")
+  exec(code)
 
 st.title("Code Execution")
 
@@ -19,4 +19,4 @@ code = st.text_area("Enter your code:")
 # Execute the code and print the result.
 if st.button("Run"):
   result = execute_code(code)
-  st.write("The result is:", result)
+  st.write("The result is:", x)
