@@ -9,7 +9,7 @@ def main():
   code = st.text_area("Enter code:")
   if st.button("Execute"):
     exec_code(code)
-    print(y)
+    st.write(y)
 
 if __name__ == "__main__":
   main()
