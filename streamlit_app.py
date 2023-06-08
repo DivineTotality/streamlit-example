@@ -40,4 +40,3 @@ Question()
 # Execute the code
 if st.button("Execute Code"):
   execute_code(code)
-  Checker()
