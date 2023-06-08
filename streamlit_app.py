@@ -6,6 +6,7 @@ from time import sleep
 l = 0
 pts = 0
 lib = 0
+code = "string"
 
 st.title("CODE-IT-OUT!!")
 st.divider()
@@ -29,7 +30,6 @@ realOutput = (randint(1,2))
 Question()
   
 if st.button("Run"):
-  global code
   exec(code)
   st.write("Why is:", x)
 
