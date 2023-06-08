@@ -1,43 +1,14 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-from random import randint
-from importlib import reload
-from os import system
-from time import sleep
-realOutput = (randint(1,2))
-l = 0
-pts = 0
-lib = 0
 
+def exec_code(code):
+  """Executes the given code."""
+  exec(code)
 
-def execute_code(codes):
-  try:
-    exec(codes)
-  except Exception as e:
-    st.error()
-    
-def Question():
-  global lib
-  global pts
-  global TrueUserInput
-  if realOutput == 1:
-    Question1 = (randint(1,1000))
-    st.write("output the value of x as:", Question1)
-    code = st.text_input("Enter your code here:")
-    
-  elif realOutput == 2:
-    QuestionInput =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
-    st.write("Make a program that combines all these numbers, saved as x, y, z:", QuestionInput)
-    code = st.text_input("Enter your code here:")
+def main():
+  """Main function."""
+  code = st.text_area("Enter code:")
+  if st.button("Execute"):
+    exec_code(code)
 
-  sleep(0.5)
-
-st.title("CODE-IT-OUT!!")
-st.divider()
-Question()
-
-# Execute the code
-if st.button("Execute Code"):
-  exec(codes)
-  print(y)
+if __name__ == "__main__":
+  main()
