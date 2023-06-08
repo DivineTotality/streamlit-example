@@ -17,5 +17,6 @@ st.title("Code Execution")
 code = st.text_area("Enter your code:")
 
 # Execute the code and print the result.
-result = execute_code(code)
-st.write("The result is:", result)
+if st.button("Run"):
+  result = execute_code(code)
+  st.write("The result is:", result)
