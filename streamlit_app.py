@@ -13,7 +13,7 @@ if QuestionChoices == 1:
   st.write("output the value of x as:", Question1)
 elif QuestionChoices == 2:
   Question2 =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
-  print("Make a program that combines all these numbers,saved as x, y, z:", Question2)
+  st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
 
 code = st.text_area("Code: ")
 
