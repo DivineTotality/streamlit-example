@@ -1,6 +1,6 @@
 import streamlit as st
 from random import randint
-from os import system
+from time import sleep
 QuestionChoices = randint(1,2)
 pts = 0
 
@@ -34,3 +34,5 @@ if st.button("Run"):
       pts+=100
     else:
       st.write("Wrong")
+ 
+sleep(1) 
