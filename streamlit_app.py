@@ -6,7 +6,7 @@ from time import sleep
 l = 0
 pts = 0
 lib = 0
-code = "string"
+code = 0
 
 st.title("CODE-IT-OUT!!")
 st.divider()
