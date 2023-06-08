@@ -29,7 +29,7 @@ if st.button("Run"):
   elif QuestionChoices == 2:
     exec(code)
     st.code(x+y+z)
-    if x+y+z == Question2[0] + Question2[1] + Question[2]:
+    if x+y+z == Question2[0] + Question2[1] + Question2[2]:
       st.write("Correct!!")
       pts+=100
     else:
