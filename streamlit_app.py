@@ -24,12 +24,12 @@ def Question():
     st.write("Make a program that combines all these numbers,saved as x, y, z:", QuestionInput)
     code = st.text_area("Code: ")
 
- st.write("P:", pts)
- realOutput = (randint(1,2))
- Question()
+st.write("P:", pts)
+realOutput = (randint(1,2))
+Question()
   
- if st.button("Run"):
-   exec(code)
-   st.write("Why is:", x)
+if st.button("Run"):
+  exec(code)
+  st.write("Why is:", x)
 
  
