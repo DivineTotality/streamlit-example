@@ -21,17 +21,14 @@ if st.button("Run"):
   if QuestionChoices == 1:
     exec(code)
     st.code(x)
-  elif QuestionChoices == 2:
-    exec(code)
-    st.code(x+y+z)
-
-  if QuestionChoices == 1:
     if x == Question1:
       st.write("Correct!!")
       pts+=100
     else:
       st.write("Wrong")
   elif QuestionChoices == 2:
+    exec(code)
+    st.code(x+y+z)
     if x+y+z == Question2[0] + Question2[1] + Question[2]:
       st.write("Correct!!")
       pts+=100
