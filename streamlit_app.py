@@ -19,4 +19,4 @@ code = st.text_area("Enter your code:")
 # Execute the code and print the result.
 if st.button("Run"):
   result = execute_code(code)
-  st.write("The result is:", x)
+  print("The result is:", x)
