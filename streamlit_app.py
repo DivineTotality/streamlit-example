@@ -4,4 +4,4 @@ code = st.text_area("Code: ")
 
 if st.button("Run"):
   exec(code)
-  print("Why is:", x)
+  st.write("Why is:", x)
