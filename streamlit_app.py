@@ -9,7 +9,7 @@ def execute_code(code):
   Returns:
     The value of the last expression evaluated in the code.
   """
-  eval(code)
+  return eval(f"{code}")
 
 st.title("Code Execution")
 
