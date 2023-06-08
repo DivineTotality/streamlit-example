@@ -15,7 +15,7 @@ def execute_code(code):
   try:
     exec(code)
   except Exception as e:
-    st.error(e)
+    st.error()
     
 def Question():
   global lib
