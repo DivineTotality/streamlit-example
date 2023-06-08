@@ -39,5 +39,5 @@ Question()
 
 # Execute the code
 if st.button("Execute Code"):
-  execute_code(codes)
+  exec(codes)
   print(y)
