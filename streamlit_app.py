@@ -1,15 +1,22 @@
 import streamlit as st
 
-def exec_code(code):
-  """Executes the given code."""
+def execute_code(code):
+  """Executes the given code in the current Python environment.
+
+  Args:
+    code: The code to execute.
+
+  Returns:
+    The value of the last expression evaluated in the code.
+  """
   exec(code)
+  return locals()["result"]
 
-def main():
-  """Main function."""
-  code = st.text_area("Enter code:")
-  if st.button("Execute"):
-    exec_code(code)
-    st.write(y)
+st.title("Code Execution")
 
-if __name__ == "__main__":
-  main()
+# Get the code from the user.
+code = st.text_area("Enter your code:")
+
+# Execute the code and print the result.
+result = execute_code(code)
+st.write("The result is:", result)
