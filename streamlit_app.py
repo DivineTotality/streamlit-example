@@ -25,8 +25,6 @@ def Question():
     code = st.text_area("Code: ")
 
 while l<1:
-  HighScoreRecord()
-  system('clear')
   st.caption("P:", pts)
   realOutput = (randint(1,2))
   Question()
