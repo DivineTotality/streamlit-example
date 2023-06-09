@@ -71,3 +71,5 @@ if st.session_state.result == "Correct":
     st.write("You answered correctly!")
 elif st.session_state.result == "Wrong":
     st.write("You answered incorrectly!")
+
+# JavaScript 코드를 삽입
