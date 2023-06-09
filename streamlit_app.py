@@ -34,17 +34,25 @@ def check_answer():
     if current_question is None:
         return False
     if isinstance(current_question, int):
+        if 'x' not in locals():
+            return False
         if x == current_question:
             st.write("Correct!!")
             pts += 100
+            st.session_state.result = "Correct"
         else:
             st.write("Wrong")
+            st.session_state.result = "Wrong"
     elif isinstance(current_question, list):
+        if 'x' not in locals() or 'y' not in locals() or 'z' not in locals():
+            return False
         if x + y + z == sum(current_question):
             st.write("Correct!!")
             pts += 100
+            st.session_state.result = "Correct"
         else:
             st.write("Wrong")
+            st.session_state.result = "Wrong"
 
 st.title("CODE-IT-OUT!!")
 st.write("Points:", pts)
