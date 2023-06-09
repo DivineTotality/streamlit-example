@@ -4,7 +4,7 @@ from time import sleep
 QuestionChoices = randint(1,2)
 pts = 0
 Question1 = 0
-Question2 = 0
+Question2 = {1, 2, 3}
 
 @st.cache_data
 def Question(QuestionChoices):
