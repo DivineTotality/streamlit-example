@@ -5,7 +5,7 @@ QuestionChoices = randint(1,2)
 pts = 0
 
 @st.cache_data
-def Question():
+def Question(QuestionChoices):
   if QuestionChoices == 1:
   Question1 = (randint(1,1000))
   st.write("output the value of x as:", Question1)
@@ -18,6 +18,8 @@ st.write("Points:", pts)
 st.divider()
 
 sleep(1)
+
+Question(QuestionChoices)
 
 form = st.form(key='my-form')
 code = form.text_area("Code:")
