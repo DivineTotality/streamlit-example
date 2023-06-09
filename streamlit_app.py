@@ -18,9 +18,11 @@ elif QuestionChoices == 2:
   st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
 
   
-code = st.text_area("Code: ")
+form = form(key='my-form')
+code = form.text_area("Code:")
+submit = form.form_submit_button("Run")
 
-if st.form_submit_button("Run"):
+if submit:
   if QuestionChoices == 1:
     exec(code)
     st.code(x)
