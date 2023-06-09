@@ -1,54 +1,56 @@
 import streamlit as st
 from random import randint
-from time import sleep
 
 st.title("CODE-IT-OUT!!")
 
 if 'pts' not in st.session_state:
     st.session_state['pts'] = 0
 
-QuestionChoices = randint(1, 2)
-Question1 = 0
-Question2 = {1, 2, 3}
+question_choices = randint(1, 2)
+question1 = 0
+question2 = []
 
-def Question(QuestionChoices):
-    global Question1
-    global Question2
-    if QuestionChoices == 1:
-        Question1 = (randint(1, 1000))
-        st.write("output the value of x as:", Question1)
-    elif QuestionChoices == 2:
-        Question2 = [(randint(0, 999)), (randint(1, 999)), (randint(1, 999))]
-        st.write("Make a program that combines all these numbers, saved as x, y, z:", Question2)
+def generate_question():
+    global question1
+    global question2
+    
+    if question_choices == 1:
+        question1 = randint(1, 1000)
+        st.write("Output the value of x as:", question1)
+    elif question_choices == 2:
+        question2 = [randint(0, 999), randint(1, 999), randint(1, 999)]
+        st.write("Make a program that combines all these numbers, saved as x, y, z:", question2)
 
-x = 0
-y = 0
-z = 0
+def check_answer(code):
+    if question_choices == 1:
+        exec(code, globals())
+        if x == question1:
+            return True
+        else:
+            return False
+    elif question_choices == 2:
+        exec(code, globals())
+        if x + y + z == sum(question2):
+            return True
+        else:
+            return False
 
-result_placeholder = st.empty()
-Question(QuestionChoices)
+generate_question()
 
 form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
 if submit:
-    if QuestionChoices == 1:
-        exec(code, globals())
-        st.code(x)
-        if x == Question1:
-            result_placeholder.markdown("**Correct!!**")
-            st.session_state['pts'] += 100
-        else:
-            result_placeholder.markdown("**Wrong**")
-    elif QuestionChoices == 2:
-        exec(code, globals())
-        st.code(x + y + z)
-        if x + y + z == Question2[0] + Question2[1] + Question2[2]:
-            result_placeholder.markdown("**Correct!!**")
-            st.session_state['pts'] += 100
-        else:
-            result_placeholder.markdown("**Wrong**")
+    if check_answer(code):
+        st.write("**Correct!!**")
+        st.session_state['pts'] += 100
+    else:
+        st.write("**Wrong**")
+
+    # Generate a new question
+    question_choices = randint(1, 2)
+    generate_question()
 
 st.write("Points:", st.session_state['pts'])
 st.divider()
