@@ -20,7 +20,7 @@ elif QuestionChoices == 2:
   
 code = st.text_area("Code: ")
 
-if st.button("Run"):
+if st.form_submit_button("Run"):
   if QuestionChoices == 1:
     exec(code)
     st.code(x)
