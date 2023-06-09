@@ -55,3 +55,12 @@ if submit:
                 pts += 100
                 st.session_state.result = "Correct"
             else:
+                st.write("Wrong")
+                st.session_state.result = "Wrong"
+        else:
+            st.write("Variables 'x', 'y', 'z' not defined")
+
+if st.session_state.result == "Correct":
+    st.write("You answered correctly!")
+elif st.session_state.result == "Wrong":
+    st.write("You answered incorrectly!")
