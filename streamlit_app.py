@@ -32,17 +32,23 @@ submit = form.form_submit_button("Run")
 if submit:
     if QuestionChoices == 1:
         exec(code, globals())
-        st.code(x)
-        if x == Question1:
-            st.write("Correct!!")
-            pts += 100
+        if 'x' in globals():
+            st.code(x)
+            if x == Question1:
+                st.write("Correct!!")
+                pts += 100
+            else:
+                st.write("Wrong")
         else:
-            st.write("Wrong")
+            st.write("Variable 'x' not defined")
     elif QuestionChoices == 2:
         exec(code, globals())
-        st.code(x + y + z)
-        if x + y + z == sum(Question2):
-            st.write("Correct!!")
-            pts += 100
+        if 'x' in globals() and 'y' in globals() and 'z' in globals():
+            st.code(x + y + z)
+            if x + y + z == sum(Question2):
+                st.write("Correct!!")
+                pts += 100
+            else:
+                st.write("Wrong")
         else:
-            st.write("Wrong")
+            st.write("Variables 'x', 'y', 'z' not defined")
