@@ -29,11 +29,10 @@ form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
-if 'run' not in st.session_state:
-    st.session_state.run = False
+if 'result' not in st.session_state:
+    st.session_state.result = None
 
-if submit and not st.session_state.run:
-    st.session_state.run = True
+if submit:
     if QuestionChoices == 1:
         exec(code, globals())
         if 'x' in globals():
@@ -41,8 +40,10 @@ if submit and not st.session_state.run:
             if x == Question1:
                 st.write("Correct!!")
                 pts += 100
+                st.session_state.result = "Correct"
             else:
                 st.write("Wrong")
+                st.session_state.result = "Wrong"
         else:
             st.write("Variable 'x' not defined")
     elif QuestionChoices == 2:
@@ -52,10 +53,15 @@ if submit and not st.session_state.run:
             if x + y + z == sum(Question2):
                 st.write("Correct!!")
                 pts += 100
+                st.session_state.result = "Correct"
             else:
                 st.write("Wrong")
+                st.session_state.result = "Wrong"
         else:
             st.write("Variables 'x', 'y', 'z' not defined")
 
-if st.session_state.run:
-    st.write("You already submitted your answer. Refresh the page to start a new question.")
+if st.session_state.result == "Correct":
+    st.write("You answered correctly!")
+elif st.session_state.result == "Wrong":
+    st.write("You answered incorrectly!")
+
