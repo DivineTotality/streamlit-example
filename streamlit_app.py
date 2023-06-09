@@ -29,7 +29,11 @@ form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
-if submit:
+if 'run' not in st.session_state:
+    st.session_state.run = False
+
+if submit and not st.session_state.run:
+    st.session_state.run = True
     if QuestionChoices == 1:
         exec(code, globals())
         if 'x' in globals():
@@ -52,3 +56,6 @@ if submit:
                 st.write("Wrong")
         else:
             st.write("Variables 'x', 'y', 'z' not defined")
+
+if st.session_state.run:
+    st.write("You already submitted your answer. Refresh the page to start a new question.")
