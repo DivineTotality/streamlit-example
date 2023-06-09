@@ -42,7 +42,9 @@ code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
 if submit:
-    if check_answer(code):
+    result = check_answer(code)
+    
+    if result:
         st.write("**Correct!!**")
         st.session_state['pts'] += 100
     else:
