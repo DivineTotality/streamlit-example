@@ -34,8 +34,8 @@ if 'result' not in st.session_state:
 
 if submit:
     if QuestionChoices == 1:
-        exec(code, globals())
-        if 'x' in globals():
+        exec(code, locals())
+        if 'x' in locals():
             st.code(x)
             if x == Question1:
                 st.write("Correct!!")
@@ -47,8 +47,8 @@ if submit:
         else:
             st.write("Variable 'x' not defined")
     elif QuestionChoices == 2:
-        exec(code, globals())
-        if 'x' in globals() and 'y' in globals() and 'z' in globals():
+        exec(code, locals())
+        if 'x' in locals() and 'y' in locals() and 'z' in locals():
             st.code(x + y + z)
             if x + y + z == sum(Question2):
                 st.write("Correct!!")
