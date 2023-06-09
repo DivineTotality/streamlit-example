@@ -34,7 +34,7 @@ if 'result' not in st.session_state:
 
 if submit:
     if QuestionChoices == 1:
-        with st.cache():
+        with st.cache(suppress_st_warning=True):
             exec(code, globals(), locals())
         if 'x' in locals():
             st.code(x)
@@ -48,7 +48,7 @@ if submit:
         else:
             st.write("Variable 'x' not defined")
     elif QuestionChoices == 2:
-        with st.cache():
+        with st.cache(suppress_st_warning=True):
             exec(code, globals(), locals())
         if 'x' in locals() and 'y' in locals() and 'z' in locals():
             st.code(x + y + z)
