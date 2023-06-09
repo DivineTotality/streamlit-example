@@ -4,6 +4,15 @@ from time import sleep
 QuestionChoices = randint(1,2)
 pts = 0
 
+@st.cache_data
+def Question():
+  if QuestionChoices == 1:
+  Question1 = (randint(1,1000))
+  st.write("output the value of x as:", Question1)
+elif QuestionChoices == 2:
+  Question2 =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
+  st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
+
 st.title("CODE-IT-OUT!!")
 st.write("Points:", pts)
 st.divider()
@@ -13,13 +22,6 @@ sleep(1)
 form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
-
-if QuestionChoices == 1:
-  Question1 = (randint(1,1000))
-  st.write("output the value of x as:", Question1)
-elif QuestionChoices == 2:
-  Question2 =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
-  st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
 
 if submit:
   if QuestionChoices == 1:
