@@ -18,7 +18,7 @@ elif QuestionChoices == 2:
   st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
 
   
-form = form(key='my-form')
+form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
