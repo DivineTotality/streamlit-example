@@ -6,7 +6,6 @@ pts = 0
 Question1 = 0
 Question2 = {1, 2, 3}
 
-@st.cache_data
 def Question(QuestionChoices):
   global Question1
   global Question2
