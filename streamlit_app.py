@@ -3,9 +3,13 @@ from random import randint
 from time import sleep
 QuestionChoices = randint(1,2)
 pts = 0
+Question1 = 0
+Question2 = 0
 
 @st.cache_data
 def Question(QuestionChoices):
+  global Question1
+  global Question2
   if QuestionChoices == 1:
     Question1 = (randint(1,1000))
     st.write("output the value of x as:", Question1)
