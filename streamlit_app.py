@@ -29,39 +29,20 @@ form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
-if 'result' not in st.session_state:
-    st.session_state.result = None
-
 if submit:
     if QuestionChoices == 1:
-        exec(code, globals())
-        if 'x' in globals():
-            st.code(x)
-            if x == Question1:
-                st.write("Correct!!")
-                pts += 100
-                st.session_state.result = "Correct"
-            else:
-                st.write("Wrong")
-                st.session_state.result = "Wrong"
+        exec(code)
+        st.code(x)
+        if x == Question1:
+            st.write("Correct!!")
+            pts += 100
         else:
-            st.write("Variable 'x' not defined")
+            st.write("Wrong")
     elif QuestionChoices == 2:
-        exec(code, globals())
-        if 'x' in globals() and 'y' in globals() and 'z' in globals():
-            st.code(x + y + z)
-            if x + y + z == sum(Question2):
-                st.write("Correct!!")
-                pts += 100
-                st.session_state.result = "Correct"
-            else:
-                st.write("Wrong")
-                st.session_state.result = "Wrong"
+        exec(code)
+        st.code(x + y + z)
+        if x + y + z == sum(Question2):
+            st.write("Correct!!")
+            pts += 100
         else:
-            st.write("Variables 'x', 'y', 'z' not defined")
-
-if st.session_state.result == "Correct":
-    st.write("You answered correctly!")
-elif st.session_state.result == "Wrong":
-    st.write("You answered incorrectly!")
-
+            st.write("Wrong")
