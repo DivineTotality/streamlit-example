@@ -20,7 +20,7 @@ elif QuestionChoices == 2:
   
 code = st.text_area("Code: ")
 
-if st.button("Run"):
+if st.button("Run", refresh=False):
   if QuestionChoices == 1:
     exec(code)
     st.code(x)
@@ -37,3 +37,5 @@ if st.button("Run"):
       pts+=100
     else:
       st.write("Wrong")
+    sleep(1)
+    st.experimental_rerun()
