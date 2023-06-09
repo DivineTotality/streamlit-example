@@ -23,17 +23,24 @@ st.divider()
 
 sleep(1)
 
-Question(QuestionChoices)
+if 'result' not in st.session_state:
+    st.session_state.result = None
+
+if 'QuestionChoices' not in st.session_state:
+    st.session_state.QuestionChoices = QuestionChoices
+
+if st.session_state.QuestionChoices != QuestionChoices:
+    st.session_state.QuestionChoices = QuestionChoices
+    st.session_state.result = None
+
+Question(st.session_state.QuestionChoices)
 
 form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
-if 'result' not in st.session_state:
-    st.session_state.result = None
-
 if submit:
-    if QuestionChoices == 1:
+    if st.session_state.QuestionChoices == 1:
         exec(code, globals(), locals())
         if 'x' in locals():
             st.code(x)
@@ -46,7 +53,7 @@ if submit:
                 st.session_state.result = "Wrong"
         else:
             st.write("Variable 'x' not defined")
-    elif QuestionChoices == 2:
+    elif st.session_state.QuestionChoices == 2:
         exec(code, globals(), locals())
         if 'x' in locals() and 'y' in locals() and 'z' in locals():
             st.code(x + y + z)
