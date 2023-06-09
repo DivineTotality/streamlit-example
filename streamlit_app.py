@@ -21,6 +21,10 @@ def Question(QuestionChoices):
         Question2 = [(randint(0, 999)), (randint(1, 999)), (randint(1, 999))]
         st.write("Make a program that combines all these numbers, saved as x, y, z:", Question2)
 
+x = 0
+y = 0
+z = 0
+
 result_placeholder = st.empty()
 Question(QuestionChoices)
 
@@ -30,21 +34,21 @@ submit = form.form_submit_button("Run")
 
 if submit:
     if QuestionChoices == 1:
-        exec(code)
+        exec(code, globals())
         st.code(x)
         if x == Question1:
-            result_placeholder.write("Correct!!")
+            result_placeholder.markdown("**Correct!!**")
             st.session_state['pts'] += 100
         else:
-            result_placeholder.write("Wrong")
+            result_placeholder.markdown("**Wrong**")
     elif QuestionChoices == 2:
-        exec(code)
+        exec(code, globals())
         st.code(x + y + z)
         if x + y + z == Question2[0] + Question2[1] + Question2[2]:
-            result_placeholder.write("Correct!!")
+            result_placeholder.markdown("**Correct!!**")
             st.session_state['pts'] += 100
         else:
-            result_placeholder.write("Wrong")
+            result_placeholder.markdown("**Wrong**")
 
 st.write("Points:", st.session_state['pts'])
 st.divider()
