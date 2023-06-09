@@ -23,6 +23,7 @@ code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
 if submit:
+  st.experimental_rerun_on_change(name)
   if QuestionChoices == 1:
     exec(code)
     st.code(x)
