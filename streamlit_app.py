@@ -29,12 +29,16 @@ form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
+@st.cache
+def execute_code(code):
+    exec(code, globals(), locals())
+
 if 'result' not in st.session_state:
     st.session_state.result = None
 
 if submit:
     if QuestionChoices == 1:
-        exec(code, locals())
+        execute_code(code)
         if 'x' in locals():
             st.code(x)
             if x == Question1:
@@ -47,7 +51,7 @@ if submit:
         else:
             st.write("Variable 'x' not defined")
     elif QuestionChoices == 2:
-        exec(code, locals())
+        execute_code(code)
         if 'x' in locals() and 'y' in locals() and 'z' in locals():
             st.code(x + y + z)
             if x + y + z == sum(Question2):
