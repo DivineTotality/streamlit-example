@@ -7,11 +7,11 @@ pts = 0
 @st.cache_data
 def Question(QuestionChoices):
   if QuestionChoices == 1:
-  Question1 = (randint(1,1000))
-  st.write("output the value of x as:", Question1)
-elif QuestionChoices == 2:
-  Question2 =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
-  st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
+    Question1 = (randint(1,1000))
+    st.write("output the value of x as:", Question1)
+  elif QuestionChoices == 2:
+    Question2 =[(randint(0,999)), (randint(1,999)), (randint(1,999))]
+    st.write("Make a program that combines all these numbers,saved as x, y, z:", Question2)
 
 st.title("CODE-IT-OUT!!")
 st.write("Points:", pts)
