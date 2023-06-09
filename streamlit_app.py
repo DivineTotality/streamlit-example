@@ -24,18 +24,16 @@ def generate_question():
 def check_answer(code):
     if question_choices == 1:
         exec(code, globals())
-        if x == question1:
+        if 'x' in globals() and x == question1:
             return True
         else:
             return False
     elif question_choices == 2:
         exec(code, globals())
-        if x + y + z == sum(question2):
+        if 'x' in globals() and 'y' in globals() and 'z' in globals() and x + y + z == sum(question2):
             return True
         else:
             return False
-
-generate_question()
 
 form = st.form(key='my-form')
 code = form.text_area("Code:")
