@@ -31,7 +31,7 @@ submit = form.form_submit_button("Run")
 
 if submit:
     if QuestionChoices == 1:
-        exec(code)
+        exec(code, globals())
         st.code(x)
         if x == Question1:
             st.write("Correct!!")
@@ -39,7 +39,7 @@ if submit:
         else:
             st.write("Wrong")
     elif QuestionChoices == 2:
-        exec(code)
+        exec(code, globals())
         st.code(x + y + z)
         if x + y + z == sum(Question2):
             st.write("Correct!!")
