@@ -6,16 +6,45 @@ QuestionChoices = randint(1, 2)
 pts = 0
 Question1 = 0
 Question2 = [1, 2, 3]
+current_question = None
 
 def Question(QuestionChoices):
     global Question1
     global Question2
+    global current_question
     if QuestionChoices == 1:
-        Question1 = randint(1, 1000)
+        current_question = Question1 = randint(1, 1000)
         st.write("output the value of x as:", Question1)
     elif QuestionChoices == 2:
-        Question2 = [randint(0, 999), randint(1, 999), randint(1, 999)]
+        current_question = Question2 = [randint(0, 999), randint(1, 999), randint(1, 999)]
         st.write("Make a program that combines all these numbers, saved as x, y, z:", Question2)
+
+def is_current_question_answered():
+    global current_question
+    if current_question is None:
+        return False
+    if isinstance(current_question, int):
+        return 'x' in locals()
+    elif isinstance(current_question, list):
+        return 'x' in locals() and 'y' in locals() and 'z' in locals()
+    return False
+
+def check_answer():
+    global pts
+    if current_question is None:
+        return False
+    if isinstance(current_question, int):
+        if x == current_question:
+            st.write("Correct!!")
+            pts += 100
+        else:
+            st.write("Wrong")
+    elif isinstance(current_question, list):
+        if x + y + z == sum(current_question):
+            st.write("Correct!!")
+            pts += 100
+        else:
+            st.write("Wrong")
 
 st.title("CODE-IT-OUT!!")
 st.write("Points:", pts)
@@ -40,36 +69,13 @@ code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
 if submit:
-    if st.session_state.QuestionChoices == 1:
+    if is_current_question_answered():
+        st.write("You have already answered the current question.")
+    else:
         exec(code, globals(), locals())
-        if 'x' in locals():
-            st.code(x)
-            if x == Question1:
-                st.write("Correct!!")
-                pts += 100
-                st.session_state.result = "Correct"
-            else:
-                st.write("Wrong")
-                st.session_state.result = "Wrong"
-        else:
-            st.write("Variable 'x' not defined")
-    elif st.session_state.QuestionChoices == 2:
-        exec(code, globals(), locals())
-        if 'x' in locals() and 'y' in locals() and 'z' in locals():
-            st.code(x + y + z)
-            if x + y + z == sum(Question2):
-                st.write("Correct!!")
-                pts += 100
-                st.session_state.result = "Correct"
-            else:
-                st.write("Wrong")
-                st.session_state.result = "Wrong"
-        else:
-            st.write("Variables 'x', 'y', 'z' not defined")
+        check_answer()
 
 if st.session_state.result == "Correct":
     st.write("You answered correctly!")
 elif st.session_state.result == "Wrong":
     st.write("You answered incorrectly!")
-
-# JavaScript 코드를 삽입
