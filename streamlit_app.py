@@ -29,6 +29,19 @@ form = st.form(key='my-form')
 code = form.text_area("Code:")
 submit = form.form_submit_button("Run")
 
+# Add JavaScript to prevent refresh
+st.markdown(
+    """
+    <script>
+    // Prevent refreshing the page on form submission
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    </script>
+    """,
+    unsafe_allow_html=True
+)
+
 @st.cache
 def execute_code(code):
     exec(code, globals(), locals())
